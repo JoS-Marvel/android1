@@ -87,6 +87,7 @@ workflows:
         - variant: "$VARIANT"
     - deploy-to-bitrise-io@1: {}
     - cache-push@2: {}
+echo "testing1"
 app:
   envs:
   - opts:
@@ -98,6 +99,7 @@ app:
   - opts:
       is_expand: false
     VARIANT: debug
+echo "testing2"
 name: Snyk example
 on: push
 jobs:
@@ -128,3 +130,4 @@ jobs:
       uses: github/codeql-action/upload-sarif@v1
       with:
        sarif_file: snyk.sarif
+ echo "testing3"
