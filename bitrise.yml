@@ -21,7 +21,7 @@ workflows:
        1. **Private key password**
       1. Click on **[Save metadata]** button
       That's it! From now on, **Sign APK** step will receive your uploaded files.
-      ## To run this workflo
+      ## To run this workflow
       If you want to run this workflow manually:
       1. Open the app's build list page
       2. Click on **[Start/Schedule a Build]** button
