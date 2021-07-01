@@ -98,7 +98,7 @@ app:
   - opts:
       is_expand: false
     VARIANT: debug
- name: Snyk example
+name: Snyk example
 on: push
 jobs:
   Snyksecurity:
