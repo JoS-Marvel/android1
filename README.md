@@ -21,5 +21,5 @@ AIDL(IPC)学习，更多信息参考[这里](DemoIPC/README.md)。
 - Conceal: 数据机密
 - Endless: RecyclerView记载更多Demo
 - Rxjava: Rxjava demo
-- Reactive 
+- Reactiv 
 
