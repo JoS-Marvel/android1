@@ -107,6 +107,14 @@ workflows:
         - variant: $VARIANT
     - deploy-to-bitrise-io@1: {}
     - cache-push@2: {}
+    - sonarqube-scanner@1:
+        inputs:
+        - scanner_properties: |-
+            sonar.sources=.
+            sonar.login=01c4a59608ace4ea3dabe897b152363e5cab73eb
+            sonar.projectKey=JoS-Marvel_Project-one-GCP
+            sonar.host.url=https://sonarcloud.io/
+            sonar.report.export.path=sonar-report.json
     - veracode-security@1: {}
 app:
   envs:
