@@ -11,7 +11,7 @@ workflows:
   deploy:
     description: |
       ## How to get a signed AP
-      This workflow contains the **Sign APK** step. To sign your APK all you have to do is to:
+      This workflow contains the **Sign AP** step. To sign your APK all you have to do is to:
       1. Click on **Code Signing** tab
       1. Find the **ANDROID KEYSTORE FILE** section
       1. Click or drop your file on the upload file field
