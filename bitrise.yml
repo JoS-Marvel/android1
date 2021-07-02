@@ -87,23 +87,6 @@ workflows:
         - variant: "$VARIANT"
     - deploy-to-bitrise-io@1: {}
     - cache-push@2: {}
-app:
-  envs:
-  - opts:
-      is_expand: false
-    PROJECT_LOCATION: DemoAnnotation
-  - opts:
-      is_expand: false
-    MODULE: app
-  - opts:
-      is_expand: false
-    VARIANT: debug
-name: Snyk example
-on: push
-jobs:
-  Snyksecurity:
-    runs-on: ubuntu-latest
-    steps:
     - uses: actions/checkout@master
     - uses: snyk/actions/setup@master
     - uses: actions/setup-go@v1
@@ -128,3 +111,14 @@ jobs:
       uses: github/codeql-action/upload-sarif@v1
       with:
        sarif_file: snyk.sarif
+app:
+  envs:
+  - opts:
+      is_expand: false
+    PROJECT_LOCATION: DemoAnnotation
+  - opts:
+      is_expand: false
+    MODULE: app
+  - opts:
+      is_expand: false
+    VARIANT: debug
