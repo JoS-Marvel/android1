@@ -87,6 +87,9 @@ workflows:
         - variant: "$VARIANT"
     - deploy-to-bitrise-io@1: {}
     - cache-push@2: {}
+ jobs:
+  Snyksecurity:
+    runs-on: ubuntu-latest
     - uses: actions/checkout@master
     - uses: snyk/actions/setup@master
     - uses: actions/setup-go@v1
