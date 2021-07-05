@@ -84,6 +84,17 @@ workflows:
         run_if: '{{getenv "BITRISEIO_ANDROID_KEYSTORE_URL" | ne ""}}'
     - deploy-to-bitrise-io@1: {}
     - cache-push@2: {}
+  app:
+  envs:
+  - opts:
+      is_expand: false
+    PROJECT_LOCATION: DemoAnnotation
+  - opts:
+      is_expand: false
+    MODULE: app
+  - opts:
+      is_expand: false
+    VARIANT: debug
   primary:
     steps:
     - activate-ssh-key@4:
@@ -233,14 +244,3 @@ workflows:
               kill $!
               rm fifo
             fi
-app:
-  envs:
-  - opts:
-      is_expand: false
-    PROJECT_LOCATION: DemoAnnotation
-  - opts:
-      is_expand: false
-    MODULE: app
-  - opts:
-      is_expand: false
-    VARIANT: debug
