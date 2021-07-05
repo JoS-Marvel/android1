@@ -17,6 +17,7 @@ sonarqube {
     property "sonar.projectKey", "JoS-Marvel_android1"
     property "sonar.organization", "jos-marvel"
     property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.scanner.force-deprecated-java-version","true"
   }
 }
 allprojects {
