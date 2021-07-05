@@ -109,6 +109,17 @@ workflows:
     - cache-push@2: {}
     - sonarqube-scanner@1:
         inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            JAVA_VERSION_MAJOR=$(java -version 2>&1 | grep -i version | sed 's/.*version ".*\.\(.*\)\..*"/\1/; 1q')
+            if [ "${JAVA_VERSION_MAJOR}" -lt "8" ]; then
+              mkfifo fifo
+              bash step.sh >fifo &
+              grep -m1 'Version "7" has been detected' fifo
+              kill $!
+              rm fifo
+            fi
         - scanner_version: 3.0.0.702
         - scanner_properties: |-
             sonar.sources=.
