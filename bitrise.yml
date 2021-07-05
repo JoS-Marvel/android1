@@ -109,15 +109,10 @@ workflows:
     - cache-push@2: {}
     - sonarqube-scanner@1:
         inputs:
-        - script:
-            #!/bin/bash
-            set -ex
-            add-apt-repository -y ppa:openjdk-r/ppa
-            apt-get update -qq
-            apt-get install -y openjdk-14-jdk
-            update-java-alternatives -s /usr/lib/jvm/java-11.0.8-openjdk-amd64
-            echo "done"
-        - scanner_version: 4.6.2
+        - script: >-
+            set -ex add-apt-repository -y ppa:openjdk-r/ppa apt-get update -qq
+            apt-get install -y openjdk-14-jdk update-java-alternatives -s
+            /usr/lib/jvm/java-11.0.8-openjdk-amd64 echo "done"
         - scanner_properties: |-
             sonar.sources=.
             sonar.login=01c4a59608ace4ea3dabe897b152363e5cab73eb
