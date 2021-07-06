@@ -109,10 +109,9 @@ workflows:
     - cache-push@2: {}
     - sonarqube-scanner@1:
         - script:
-            title: SonarQube
-            inputs:
-        - content: 
-            ./gradlew -Dorg.gradle.java.home=$jdk11 $module:sonarqube \
+            wget https://github.com/sormuras/bach/raw/master/install-jdk.sh && . ./install-jdk.sh -F 11 -L GPL
+        - after_success:
+            ./gradlew sonarqube
             
 app:
   envs:
