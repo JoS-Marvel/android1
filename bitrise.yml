@@ -112,12 +112,7 @@ workflows:
             title: SonarQube
             inputs:
         - content: 
-            set -ex
-            add-apt-repository -y ppa:openjdk-r/ppa
-            apt-get update -qq
-            apt-get install -y openjdk-14-jdk
-            update-java-alternatives -s /usr/lib/jvm/java-1.14.0-openjdk-amd64
-            echo "done"
+            ./gradlew -Dorg.gradle.java.home=$jdk11 $module:sonarqube \
             
 app:
   envs:
