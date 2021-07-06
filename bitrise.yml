@@ -112,7 +112,6 @@ workflows:
             title: SonarQube
             inputs:
         - content: 
-            #!/bin/bash
             set -ex
             add-apt-repository -y ppa:openjdk-r/ppa
             apt-get update -qq
