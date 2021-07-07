@@ -90,8 +90,8 @@ workflows:
             add-apt-repository -y ppa:openjdk-r/ppa
             apt-get update -qq
             apt-get install -y openjdk-14-jdk
-            update-java-alternatives -s /usr/lib/jvm/java-14-openjdk-amd64
-            echo “done”
+            update-java-alternatives
+            3 :+ echo “done”
     - sonarqube-scanner@1:
         inputs:
         - script:
