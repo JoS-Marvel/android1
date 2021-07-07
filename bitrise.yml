@@ -91,6 +91,8 @@ workflows:
             apt-get update -qq
             apt-get install -y openjdk-14-jdk
             update-java-alternatives -s /usr/lib/jvm/java-11.0.10-openjdk-amd64
+            sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.1/bin/java 3
+            sudo update-alternatives --config java
             echo “done”
     - sonarqube-scanner@1:
         inputs:
