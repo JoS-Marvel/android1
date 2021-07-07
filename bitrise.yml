@@ -109,6 +109,9 @@ workflows:
     - cache-push@2: {}
     - sonarqube-scanner@1:
         - script:
+            title: SonarQube
+            inputs:
+        - content:
             ./gradlew sonarqube
             
 app:
