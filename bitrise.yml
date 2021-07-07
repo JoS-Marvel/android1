@@ -89,6 +89,7 @@ workflows:
             sudo npm install -g snyk
             sudo snyk auth 'ab3a3a57-123b-4699-bce2-95dfaba21621'
             sudo snyk test --all-projects
+            sudo snyk monitor
     - sonarqube-scanner@1:
         inputs:
         - script:
