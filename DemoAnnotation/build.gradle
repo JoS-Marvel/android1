@@ -18,6 +18,7 @@ sonarqube {
     property "sonar.organization", "jos-marvel"
     property "sonar.host.url", "https://sonarcloud.io"
     property "sonar.scanner.force-deprecated-java-version","true"
+    property "sonar.java.binaries","target"
   }
 }
 allprojects {
