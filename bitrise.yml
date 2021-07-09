@@ -84,47 +84,18 @@ workflows:
     - cache-push@2: {}
     - script@1:
         inputs:
-        - content: >-
+        - content: |-
             #!/bin/bash
-
-            set -ex
-
-            add-apt-repository -y ppa:openjdk-r/ppa
-
-            apt-get update -qq
-
-            apt-get install -y openjdk-11-jdk
-
-            sudo update-alternatives --set java
-            /usr/lib/jvm/java-11-openjdk-amd64/bin/java
-
-            sudo update-alternatives --set javac
-            /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
-
-            export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-
-            envman add --key JAVA_HOME --value
-            '/usr/lib/jvm/java-11-openjdk-amd64'
-
-            java -version
-
-            javac -version
-
-            echo $JAVA_HOME
+            sudo npm install -g snyk
+            sudo snyk auth 'ab3a3a57-123b-4699-bce2-95dfaba21621'
+            sudo snyk test --all-projects
+            sudo snyk monitor
     - sonarqube-scanner@1:
         inputs:
         - script:
             title: SonarQube
             inputs: null
         - content: './gradlew sonarqube '
-    - script@1:
-        inputs:
-        - content: |-
-            #!/bin/bash
-            sudo npm install -g snyk
-            sudo snyk auth '5c8c1e03-6942-4073-aa9b-e16faccb3af6'
-            sudo snyk test --all-projects
-            sudo snyk monitor
     after_run: []
 app:
   envs:
