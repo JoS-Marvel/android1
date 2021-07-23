@@ -88,9 +88,9 @@ workflows:
             #!/bin/bash
             sudo apt-get install build-essential curl file git
             sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-            sudo echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:$PATH"' >>~/.bashrc
-            sudo echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bashrc
-            sudo echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bashrc
+            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+            sudo apt-get install build-essential
             brew tap snyk/tap && brew install snyk
             snyk auth 'ab3a3a57-123b-4699-bce2-95dfaba21621'
             snyk test --all-projects
