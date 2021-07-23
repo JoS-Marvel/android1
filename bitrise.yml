@@ -91,11 +91,10 @@ workflows:
             sudo echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:$PATH"' >>~/.bashrc
             sudo echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bashrc
             sudo echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bashrc
-            sudo source  ~/.bashrc
             brew tap snyk/tap && brew install snyk
-            sudo snyk auth 'ab3a3a57-123b-4699-bce2-95dfaba21621'
-            sudo snyk test --all-projects
-            sudo snyk monitor
+            snyk auth 'ab3a3a57-123b-4699-bce2-95dfaba21621'
+            snyk test --all-projects
+            snyk monitor
     - sonarqube-scanner@1:
         inputs:
         - script:
